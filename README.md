@@ -1,0 +1,67 @@
+# Concept Conductor
+
+This is an Official implementation of paper 'Concept Conductor: Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis'
+
+
+## Installation
+
+```bash
+git clone https://github.com/Nihukat/Concept-Conductor.git
+cd Concept-Conductor
+pip install -r requirements.txt
+```
+
+## Preparation
+
+### Download Pretrained Text-to-Image Models.
+
+Following [Mix-of-Show](https://github.com/TencentARC/Mix-of-Show), we adopt [ChilloutMix](https://civitai.com/models/6424/chilloutmix) for real-world concepts and [Anything-v4](https://huggingface.co/xyn-ai/anything-v4.0) for anime concepts.
+
+```bash
+git clone https://github.com/TencentARC/Mix-of-Show.git
+
+cd experiments/pretrained_models
+
+# Diffusers-version ChilloutMix
+git-lfs clone https://huggingface.co/windwhinny/chilloutmix.git
+
+# Diffusers-version Anything-v4
+git-lfs clone https://huggingface.co/xyn-ai/anything-v4.0.git
+```
+
+### Download ED-LoRAs.
+
+Download our trained ED-LoRAs from [Google Drive](https://drive.google.com/drive/folders/1roYyOL7e5Ivx3lvLAXz8XKY00sDLC377?usp=drive_link).
+
+And then put them into ./experiments/ED-LoRAs
+
+To train ED-LoRAs using your own images, we recommend using the latest official implementation of [Mix-of-Show](https://github.com/TencentARC/Mix-of-Show).
+
+## Usage
+
+### Generate multiple personalized concepts
+
+```bash
+python sample.py \
+--ref_prompt "A dog and a cat in the street." \
+--base_prompt "A dog and a cat on the beach." \
+--custom_prompts "A <chow_dog_1> <chow_dog_2> on the beach." "A <siberian_cat_1> <siberian_cat_2> on the beach."\
+--ref_image_path "examples/a dog and a cat in the street.png" \
+--ref_mask_paths "examples/a dog and a cat in the street_mask1.png" "examples/a dog and a cat in the street_mask2.png" \
+--edlora_paths "" ""
+
+```
+
+You can also pass parameters using a configuration file (like ./configs/sample_config.yaml) :
+
+```bash
+python sample.py --config_file "path/to/your/config.yaml"
+```
+
+
+## To-Do List
+
+- [ ] Gradio Demo
+- [ ] More Applications
+- [ ] Visualization Results
+- [x] Research Code
