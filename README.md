@@ -48,7 +48,7 @@ python sample.py \
 --custom_prompts "A <chow_dog_1> <chow_dog_2> on the beach." "A <siberian_cat_1> <siberian_cat_2> on the beach."\
 --ref_image_path "examples/a dog and a cat in the street.png" \
 --ref_mask_paths "examples/a dog and a cat in the street_mask1.png" "examples/a dog and a cat in the street_mask2.png" \
---edlora_paths "" ""
+--edlora_paths "experiments/ED-LoRAs/real/chow_dog.pth" "experiments/ED-LoRAs/real/siberian_cat.pth"
 
 ```
 
