@@ -1,6 +1,6 @@
 # Concept Conductor
 
-This is an Official implementation of paper 'Concept Conductor: Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis'
+Official implementation for [Concept Conductor: Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis](https://arxiv.org/abs/2408.03632)
 
 
 ## Installation
@@ -65,3 +65,17 @@ python sample.py --config_file "path/to/your/config.yaml"
 - [ ] More Applications
 - [ ] Visualization Results
 - [x] Research Code
+
+
+## Citation
+
+If you find this code useful for your research, please consider citing:
+
+```
+@article{yao2024concept,
+  title={Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis},
+  author={Yao, Zebin and Feng, Fangxiang and Li, Ruifan and Wang, Xiaojie},
+  journal={arXiv preprint arXiv:2408.03632},
+  year={2024}
+}
+```
