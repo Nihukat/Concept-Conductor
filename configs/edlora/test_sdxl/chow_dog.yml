@@ -1,0 +1,30 @@
+name: EDLoRA_chow_dog
+manual_seed: 0
+mixed_precision: fp16
+
+# dataset and data loader settings
+datasets:
+  val_vis:
+    name: PromptDataset
+    prompts: datasets/validation_prompts/dog.txt
+    num_samples_per_prompt: 8
+    latent_size: [ 4,128,128 ]
+    replace_mapping:
+      <TOK>: <chow_dog_1> <chow_dog_2>
+    batch_size_per_gpu: 4
+
+models:
+  pretrained_path: experiments/pretrained/RealVisXL_V5.0
+  enable_edlora: true  # true means ED-LoRA, false means vallina LoRA
+
+# path
+path:
+  lora_path: experiments/SDXL_ED-LoRAs/real/chow_dog.pth
+
+# validation settings
+val:
+  compose_visualize: true
+  alpha_list: [0, 0.7, 1.0] # 0 means only visualize embedding (without lora weight)
+  sample:
+    num_inference_steps: 50
+    guidance_scale: 7.5

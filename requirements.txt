@@ -1,0 +1,12 @@
+diffusers==0.28.0
+numpy==1.24.4
+omegaconf==2.3.0
+opencv_contrib_python==4.9.0.80
+opencv_python==4.8.1.78
+opencv_python_headless==4.8.1.78
+Pillow==9.5.0
+torch==2.2.2+cu118
+torch_kmeans==0.2.0
+torchvision==0.17.2+cu118
+tqdm==4.65.2
+xformers==0.0.25.post1+cu118
