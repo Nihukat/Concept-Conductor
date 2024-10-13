@@ -39,7 +39,7 @@ sd_t2i:
   width: 512
   guidance_scale: 7.5
   num_inference_steps: 200
-  start_seed: 25
+  start_seed: 0
   batch_size: 4
   n_batches: 1
   verbose: False

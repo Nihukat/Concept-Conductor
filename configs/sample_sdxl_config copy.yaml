@@ -1,0 +1,73 @@
+inputs:
+  ref_prompt: "A `cat on a stool and a `dog on the floor."
+  base_prompt: "A `cat on a stool and a `dog on the floor."
+  negative_prompt: ""
+  custom_prompts:
+    - "A <siberian_cat_1> `<siberian_cat_2> on a stool and a <siberian_cat_1> `<siberian_cat_2> on the floor."
+    - "A <chow_dog_1> `<chow_dog_2> on a stool and a <chow_dog_1> `<chow_dog_2> on the floor."
+  ref_image_path: "examples/a cat on a stool and a dog on the floor.png"
+  ref_mask_paths:
+    - "examples/a cat on a stool and a dog on the floor_mask1.png"
+    - "examples/a cat on a stool and a dog on the floor_mask2.png"  
+  init_mask_from_points: False
+  mask_center_points: []
+  init_image_path: ~
+  init_mask_path: ~       
+  edlora_paths:
+    - "experiments/SDXL_ED-LoRAs/real/siberian_cat.pth"    
+    - "experiments/SDXL_ED-LoRAs/real/chow_dog.pth"  
+  load_edlora: True
+  lora_alpha: 0.7
+
+outputs:
+  outroot: "outputs/RealVisXL_V5.0/siberian_cat+chow_dog"
+  image_outdir: "inference_results"
+  latents_outdir: "inverted_latents"
+  self_attn_outdir: "self_attn"
+  cross_attn_outdir: "cross_attn"
+  feature_mask_outdir: "feature_mask"
+
+
+base_model:
+  sd_ckpt: "experiments/pretrained_models/RealVisXL_V5.0"
+  variant: ""
+
+sd_t2i:
+  height: 1024
+  width: 1024
+  guidance_scale: 7.5
+  num_inference_steps: 200
+  start_seed: 0
+  batch_size: 1
+  n_batches: 4
+  verbose: False
+
+attention_operations:
+  attn_guidance_end: 50
+  attn_guidance_interval: 1
+  attn_guidance_weight: 30
+  custom_attn_guidance_factor: 1.0
+
+  processor_filter_guidance: 'up_blocks.0.attentions.1.transformer_blocks.4.attn1.processor'
+  params_guidance: ["key"]
+  processor_filter_mask: 'up_blocks.0.attentions.1.transformer_blocks.4.attn1.processor'
+  params_mask: ['attention_probs']
+  processor_filter_merge: '.*up_blocks.*'
+  params_merge: ["feature_output"]
+  processor_filter_view_sa: 'up_blocks.0.attentions.1.transformer_blocks.4.attn1.processor'
+  params_view_sa: ["attention_probs"]      
+  processor_filter_view_ca: 'up_blocks.0.attentions.1.transformer_blocks.4.attn2.processor'  
+  params_view_ca: ["attention_probs"]    
+
+  mask_refinement_start: 60
+  mask_refinement_end: 80
+  mask_update_interval: 5
+  mask_overlap_threshold: 0.7
+  num_kmeans_init: 25
+  rect_mask: False
+
+  use_loss_mask: False
+  visualization: False
+
+
+
