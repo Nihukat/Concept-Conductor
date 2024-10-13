@@ -1,3 +1,6 @@
+# This code is based on an Apache 2.0 licensed project: Mix-of-Show
+# Original code: https://github.com/TencentARC/Mix-of-Show/blob/main/mixofshow/pipelines/trainer_edlora.py
+
 import itertools
 import math
 import re

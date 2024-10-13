@@ -1,3 +1,6 @@
+# This code is based on an Apache 2.0 licensed project: Mix-of-Show
+# Original code: https://github.com/TencentARC/Mix-of-Show/blob/main/mixofshow/data/lora_dataset.py
+
 import json
 import os
 import random

@@ -1,3 +1,6 @@
+# This code is based on an Apache 2.0 licensed project: Mix-of-Show
+# Original code: https://github.com/TencentARC/Mix-of-Show/blob/main/mixofshow/pipelines/pipeline_edlora.py
+
 from typing import Any, Callable, Dict, List, Optional, Union
 
 import torch

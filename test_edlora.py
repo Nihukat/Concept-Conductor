@@ -1,3 +1,6 @@
+# This code is based on an Apache 2.0 licensed project: Mix-of-Show
+# Original code: https://github.com/TencentARC/Mix-of-Show/blob/main/test_edlora.py
+
 import argparse
 import os
 import os.path as osp

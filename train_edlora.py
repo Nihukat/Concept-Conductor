@@ -1,4 +1,5 @@
-# This file is borrowed from https://github.com/TencentARC/Mix-of-Show/blob/main/train_edlora.py
+# This code is based on an Apache 2.0 licensed project: Mix-of-Show
+# Original code: https://github.com/TencentARC/Mix-of-Show/blob/main/train_edlora.py
 
 import argparse
 import copy

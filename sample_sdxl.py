@@ -1,12 +1,3 @@
-# ==========================================================================================
-#
-# MIT License. To view a copy of the license, visit MIT_LICENSE.md.
-#
-# ==========================================================================================
-
-# import os
-# os.environ['CUDA_VISIBLE_DEVICES'] = '2'
-
 import sys
 sys.path.append('./')
 

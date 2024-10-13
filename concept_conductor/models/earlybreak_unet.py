@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# This code is based on an Apache 2.0 licensed project: diffusers
+# Original code: https://github.com/huggingface/diffusers/blob/main/src/diffusers/models/unets/unet_2d_condition.py
+
+
 from diffusers import UNet2DConditionModel
 
 from dataclasses import dataclass

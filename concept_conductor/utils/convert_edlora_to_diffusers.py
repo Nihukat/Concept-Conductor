@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This file is borrowed from https://github.com/TencentARC/Mix-of-Show/blob/main/mixofshow/utils/convert_edlora_to_diffusers.py
+
+# This code is based on an Apache 2.0 licensed project: Mix-of-Show
+# Original code: https://github.com/TencentARC/Mix-of-Show/blob/main/mixofshow/utils/convert_edlora_to_diffusers.py
 
 import copy
 
