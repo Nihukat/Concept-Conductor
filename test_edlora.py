@@ -94,7 +94,7 @@ def test(root_path, args):
         pipe = pipeclass.from_pretrained(opt['models']['pretrained_path'],
             scheduler=DPMSolverMultistepScheduler.from_pretrained(opt['models']['pretrained_path'], subfolder='scheduler'),
             torch_dtype=torch.float16).to('cuda')
-        pipe, new_concept_cfg = convert_edlora(pipe, torch.load(opt['path']['lora_path']), enable_edlora=enable_edlora, alpha=lora_alpha)
+        pipe, new_concept_cfg = convert_edlora(pipe, torch.load(opt['path']['lora_path']), enable_edlora=enable_edlora, alpha=lora_alpha, n_layers=16)
         pipe.set_new_concept_cfg(new_concept_cfg)
         # visualize embedding + LoRA weight shift
         logger.info(f'Start validation sample lora({lora_alpha}):')
