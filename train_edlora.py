@@ -184,7 +184,7 @@ def save_and_validation(accelerator, opt, EDLoRA_trainer, val_dataloader, global
             pipe = pipeclass.from_pretrained(opt['models']['pretrained_path'],
                 scheduler=DPMSolverMultistepScheduler.from_pretrained(opt['models']['pretrained_path'], subfolder='scheduler'),
                 torch_dtype=torch.float16).to('cuda')
-            pipe, new_concept_cfg = convert_edlora(pipe, torch.load(save_path), enable_edlora=enable_edlora, alpha=lora_alpha)
+            pipe, new_concept_cfg = convert_edlora(pipe, torch.load(save_path), enable_edlora=enable_edlora, alpha=lora_alpha, n_layers=16)
             pipe.set_new_concept_cfg(new_concept_cfg)
             pipe.set_progress_bar_config(disable=True)
             visual_validation(accelerator, pipe, val_dataloader, f'Iters-{global_step}_Alpha-{lora_alpha}', opt)
