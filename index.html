@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis">
+  <meta name="keywords" content="Diffusion Models, Text-to-Image Genearation, Personalization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Concept Conductor</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDJBZ38S97"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FDJBZ38S97');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/twentytwenty.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./images/icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/jquery.event.move.js"></script>
+  <script src="./js/jquery.twentytwenty.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/fontawesome.all.min.js"></script>
+
+  <!--MathJax-->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span class="methodname" style="font-weight: bold;">Concept Conductor</span>:<br>Component-Controllable Personalization<br>in Text-to-Image Diffusion Models</h1>
+          <h3 class=" title is-size-4 has-text-centered">arXiv Preprint</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Zebin Yao,&nbsp;
+            </span>
+            <span class="author-block">
+              Fangxiang Feng,&nbsp;
+            </span>
+            <span class="author-block">
+              Ruifan Li,&nbsp;
+            </span>
+            <span class="author-block">
+              Xiaojie Wang
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Beijing University of Posts and Telecommunications</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2408.03632" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv" style="font-size:20px"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Nihukat/Concept-Conductor" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github" style="font-size:20px"></i>
+                  </span>
+                  <span>
+                    Code
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" width="100%" src="./images/teaser.png" alt="teaser"/>
+      <h2 class="subtitle has-text-centered">
+        We propose <span class="methodname" style="font-weight: bold;">Concept Conductor</span>, a novel inference framework for <strong>multi-concept customization</strong>. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The customization of text-to-image models has seen significant advancements, yet generating multiple personalized concepts remains a challenging task. Current methods struggle with <strong>attribute leakage</strong> and <strong>layout confusion</strong> when handling multiple concepts, leading to reduced concept fidelity and semantic consistency. 
+          </p>
+          <p>
+            In this work, we introduce a novel training-free framework, <span class="methodname" style="font-weight: bold;">Concept Conductor</span>, designed to ensure <strong>visual fidelity</strong> and <strong>correct layout</strong> in <strong>multi-concept customization</strong>. <span class="methodname" style="font-weight: bold;">Concept Conductor</span> isolates the sampling processes of multiple custom models to prevent attribute leakage between different concepts and corrects erroneous layouts through self-attention-based spatial guidance. Additionally, we present a concept injection technique that employs shape-aware masks to specify the generation area for each concept. This technique injects the structure and appearance of personalized concepts through feature fusion in the attention layers, ensuring harmony in the final image.
+          </p>
+          <p>
+            Extensive qualitative and quantitative experiments demonstrate that <span class="methodname" style="font-weight: bold;">Concept Conductor</span> can consistently generate composite images with accurate layouts while preserving the visual details of each concept. Compared to existing baselines, <span class="methodname" style="font-weight: bold;">Concept Conductor</span> shows significant performance improvements. Our method supports the combination of <strong>any number</strong> of concepts and maintains high fidelity even when dealing with <strong>visually similar concepts</strong>. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Layout Confusion in Multi-Concept Customization</h2>
+        <div class="content has-text-justified">
+        <img id="method_train" width="100%" src="./images/layout_confusion.png" alt="Layout Confusion in Multi-Concept Customization"/>
+        <p>
+          <strong>(a) Attribute leakage</strong> denotes the application of one concept’s attributes to another (e.g., a cat acquiring the fur and eyes of a dog).
+        </p>
+        <p>
+          <strong>(b) Concept omission</strong> indicates one or more target concepts not appearing in the image (e.g., the absence of the target cat).
+        </p>
+        <p>
+          <strong>(c) Subject redundancy</strong> refers to the appearance of extra subjects similar to the target concept (e.g., an extra cat).
+        </p> 
+        <p>
+          <strong>(d) Appearance truncation</strong> signifies the target concept’s appearance being observed only in a partial area of the subject (e.g., the upper half of a dog and the lower half of a cat).
+        </p>
+        <p><br></p>
+        </div>         
+
+        <h2 class="title is-3">Overview of <span class="methodname">Concept Conductor</span></h2>
+        <div class="content has-text-justified">
+            <img id="method_train" width="100%" src="./images/overview.png" alt="Overview of Concept Conductor"/>
+        <p>
+          Our method comprises three key components: <strong>Multipath Sampling</strong>, <strong>Layout Alignment</strong>, and <strong>Concept Injection</strong>. 
+          At each denoising step, the input latent vector <math><msub><mi>z</mi><mn>t</mn></msub></math> is first corrected to <math><msub><mi>z</mi><mn>t</mn></msub></math>&prime; by the <strong>Layout Alignment</strong> module. 
+          <math><msub><mi>z</mi><mn>t</mn></msub></math>&prime; is then sent to the <strong>Concept Injection</strong> module for denoising. 
+          Both <strong>Layout Alignment</strong> and <strong>Concept Injection</strong> utilize the <strong>Multipath Sampling</strong> structure. 
+          After denoising, our method can generate images that align with the given text prompt and visual concepts.
+        </p>
+        <p><br></p>
+        </div>
+
+        <h2 class="title is-3">Multipath Sampling</h2>
+        <div class="content has-text-justified">
+            <img id="method_train" width="100%" src="./images/multipath_sampling.png" alt="Multipath Sampling"/>
+        <p>
+          Custom models <math><msubsup><mi>ϵ</mi><mi>θ</mi><msub><mi>V</mi><mn>1</mn></msub></msubsup></math> and <math><msubsup><mi>ϵ</mi><mi>θ</mi><msub><mi>V</mi><mn>2</mn></msub></msubsup></math> are created by adding ED-LoRA to the base model <math><msubsup><mi>ϵ</mi><mi>θ</mi><mi>base</mi></msubsup></math>. 
+          The base prompt and edited prompts are sent to the base model and custom models, respectively. 
+          Different models receive the same latent input <math><msub><mi>z</mi><mi>t</mi></msub></math> and predict different noises. 
+          Self-attention features <math><msubsup><mi>F</mi><mi>t</mi><mi>base</mi></msubsup></math>, <math><msubsup><mi>F</mi><mi>t</mi><msub><mi>V</mi><mn>1</mn></msub></msubsup></math>, <math><msubsup><mi>F</mi><mi>t</mi><msub><mi>V</mi><mn>2</mn></msub></msubsup></math>, and the output feature maps of the attention layers <math><msubsup><mi>h</mi><mi>t</mi><mi>base</mi></msubsup></math>, <math><msubsup><mi>h</mi><mi>t</mi><msub><mi>V</mi><mn>1</mn></msub></msubsup></math>, <math><msubsup><mi>F</mi><mi>t</mi><msub><mi>V</mi><mn>2</mn></msub></msubsup></math> are recorded during this process.
+        </p>
+        <p><br></p>
+        </div>        
+
+        <h2 class="title is-3">Layout Alignment</h2>
+        <div class="content has-text-justified">
+            <img id="method_train" width="100%" src="./images/layout_alignment.png" alt="Layout Alignment"/>
+        <p>
+          The self-attention feature <math><msubsup><mi>F</mi><mi>t</mi><mi>ref</mi></msubsup></math> of the layout reference image is extracted through DDIM inversion, which is then used to compute the loss with <math><msubsup><mi>F</mi><mi>t</mi><mi>base</mi></msubsup></math>, <math><msubsup><mi>F</mi><mi>t</mi><msub><mi>V</mi><mn>1</mn></msub></msubsup></math> and <math><msubsup><mi>F</mi><mi>t</mi><msub><mi>V</mi><mn>2</mn></msub></msubsup></math>, updating the input latent vector <math><msub><mi>z</mi><mi>t</mi></msub></math>. 
+          For simplicity, the conversion from pixel space to latent space is omitted.
+        </p>
+        <p><br></p>
+        </div>           
+
+        <h2 class="title is-3">Concept Injection</h2>
+        <div class="content has-text-justified">
+            <img id="method_train" width="100%" src="./images/concept_injection.png" alt="Concept Injection"/>
+        <p>
+          Concept Injection consists of two parts: 
+          <strong>(1) Feature Fusion.</strong> The output feature maps of the attention layers from different models are multiplied by their corresponding masks and summed to obtain the fused feature map <math><msub><mi>h</mi><mi>t</mi></msub></math>, which is used to replace the original feature map <math><msubsup><mi>h</mi><mi>t</mi><mi>base</mi></msubsup></math>. 
+          <strong>(2) Mask Refinement.</strong> Segmentation maps are obtained by clustering on the self-attention, and the masks required for feature fusion are extracted from these maps.
+        </p>
+        <p><br></p>
+        </div>                  
+
+        <h2 class="title is-3">Qualitative Comparison</h2>
+        <div class="content has-text-justified">
+            <img id="method_train" width="100%" src="./images/qualitative_comparison_1.png" alt="qualitative results"/>
+            <p align="center">Qualitative comparison on two concepts</p>
+            <p><br></p>
+            <img id="method_train" width="100%" src="./images/qualitative_comparison_2.png" alt="qualitative results"/>
+            <p align="center">Qualitative comparison on more than two concepts</p>
+            <p><br></p>
+            <img id="method_train" width="100%" src="./images/qualitative_comparison_3.png" alt="qualitative results"/>
+            <p align="center">More qualitative comparisons on multi-concept customization</p>
+            <p><br></p>
+        </div>
+
+        <h2 class="title is-3">Further Applications</h2>
+        <div class="content has-text-justified">
+            <img id="method_train" width="100%" src="./images/applications_1.png" alt="further applications"/>
+            <p>
+              <strong>Collage-to-Image Generation.</strong>
+              <span class="methodname" style="font-weight: bold;">Concept Conductor</span> can also utilize a user-created collage as a layout reference and generate images following the given layout.
+            </p>
+            <p><br></p>
+
+            <img id="method_train" width="100%" src="./images/applications_2.png" alt="further applications"/>
+            <p>
+              <strong>Object Placement.</strong>
+              <span class="methodname" style="font-weight: bold;">Concept Conductor</span> can also replace objects in a given scene or add new objects to it.
+            </p>
+            <p><br></p>            
+        </div>
+
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre class="selectable"><code>
+      @article{yao2024concept,
+        title={Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis},
+        author={Yao, Zebin and Feng, Fangxiang and Li, Ruifan and Wang, Xiaojie},
+        journal={arXiv preprint arXiv:2408.03632},
+        year={2024}
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<style>
+  /* 隐藏组件 */
+  #myComponent {
+    display: none;
+  }
+</style>
+
+
+<footer class="footer pt-4 pb-0">
+  <div class="container">
+    <div class="columns is-centered">
+      <!-- <div class="column is-8"> -->
+        <div class="content">
+          <div id="myComponent">
+            <!-- 这里是你要隐藏的组件内容 -->
+            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=AFRJVa1prEvy8KCTsjCyvwUmdxK-8H2L_mUoRjGra3I"></script>
+          </div>
+          <p>
+            The website template is based on
+            <a href="https://github.com/nerfies/nerfies.github.io">
+              Nerfies
+            </a>
+            and licensed under
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+              CC-BY-SA-4.0</a>.
+          </p>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
