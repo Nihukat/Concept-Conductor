@@ -3,11 +3,11 @@
 <h1>Concept Conductor</h1>
 <h3>Concept Conductor: Orchestrating Multiple Personalized Concepts in Text-to-Image Synthesis</h3>
 
-Zebin Yao<sup>1</sup>, &nbsp; Fangxiang Feng<sup>1</sup>, &nbsp; Ruifan Li<sup>1</sup>, &nbsp; Xiaojie Wang<sup>1</sup>
+Zebin Yao, &nbsp; Fangxiang Feng, &nbsp; Ruifan Li, &nbsp; Xiaojie Wang
 
-<sup>1</sup> Beijing University of Posts and Telecommunications
+Beijing University of Posts and Telecommunications
 
-[![arXiv](https://img.shields.io/badge/arXiv-<2408.03632>-<COLOR>.svg)](https://arxiv.org/abs/2408.03632)
+[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://nihukat.github.io/Concept-Conductor/)[![arXiv](https://img.shields.io/badge/arXiv-<2408.03632>-<COLOR>.svg)](https://arxiv.org/abs/2408.03632)
 
 </div>
 
