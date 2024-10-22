@@ -7,7 +7,8 @@ Zebin Yao, &nbsp; Fangxiang Feng, &nbsp; Ruifan Li, &nbsp; Xiaojie Wang
 
 Beijing University of Posts and Telecommunications
 
-[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://nihukat.github.io/Concept-Conductor/)[![arXiv](https://img.shields.io/badge/arXiv-<2408.03632>-<COLOR>.svg)](https://arxiv.org/abs/2408.03632)
+[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://nihukat.github.io/Concept-Conductor/)
+[![arXiv](https://img.shields.io/badge/arXiv-<2408.03632>-<COLOR>.svg)](https://arxiv.org/abs/2408.03632)
 
 </div>
 
