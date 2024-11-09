@@ -59,12 +59,12 @@ def train(root_path, args):
     assert optim_type == 'AdamW', 'only support AdamW now'
     optimizer = torch.optim.AdamW(EDLoRA_trainer.get_params_to_optimize(), **train_opt['optim_g'])
 
-    # Get the training dataset
+    # Get the training dataset.
     trainset_cfg = opt['datasets']['train']
     train_dataset = LoraDataset(trainset_cfg)
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=trainset_cfg['batch_size_per_gpu'], shuffle=True, drop_last=True)
 
-    # Get the training dataset
+    # Get the training dataset.
     valset_cfg = opt['datasets']['val_vis']
     val_dataset = PromptDataset(valset_cfg)
     val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=valset_cfg['batch_size_per_gpu'], shuffle=False)

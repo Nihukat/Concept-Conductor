@@ -52,7 +52,7 @@ def visual_validation(accelerator, pipe, dataloader, current_iter, opt):
         del output
         torch.cuda.empty_cache()
 
-    # Save the lora layers, final eval
+    # Save the lora layers, final eval.
     accelerator.wait_for_everyone()
 
     if opt['val'].get('compose_visualize'):
@@ -82,7 +82,7 @@ def test(root_path, args):
     if opt.get('manual_seed') is not None:
         set_seed(opt['manual_seed'])
 
-    # Get the training dataset
+    # Get the training dataset.
     valset_cfg = opt['datasets']['val_vis']
     val_dataset = PromptDataset(valset_cfg)
     val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=valset_cfg['batch_size_per_gpu'], shuffle=False)
